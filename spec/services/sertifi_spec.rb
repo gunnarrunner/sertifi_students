@@ -10,8 +10,8 @@ RSpec.describe SertifiService do
         service = SertifiService.students
 
         expect(service.class).to eq(Array)
-        # expect(service[:results].class).to eq(Array)
-        # expect(service[:results][0][:locations][0]).to have_key(:latLng)
+        expect(service[0]).to have_key(:Name)
+        expect(service[0][:GPARecord].class).to eq(Array)
       end
     end
   end
