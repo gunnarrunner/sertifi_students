@@ -6,6 +6,9 @@ require 'rails_helper'
    end
    it 'can visit the students page and see JSON output', :vcr do
     save_and_open_page
-      expect(page).to have_content('Hello my name is Gunnar')
+
+      expect(current_path).to eq('/students')
+      expect(page).to have_content('Gunnar Runkle')
+      expect(page).to have_button('Submit JSON')
    end
  end

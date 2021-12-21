@@ -1,1 +1,3 @@
-<h1> Hello my name is Gunnar </h1>
+<h3> <%= @sertifi_json %> </h3>
+
+<%= button_to 'Submit JSON', 'http://apitest.sertifi.net/api/StudentAggregate', params: {students: @sertifi_json}, method: :patch %>
