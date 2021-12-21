@@ -11,4 +11,8 @@ class Student
     @end_year = student_info[:EndYear]
     @gpa = student_info[:GPARecord]
   end
+
+  # def 
+    
+  # end
 end
