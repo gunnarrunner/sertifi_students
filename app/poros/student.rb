@@ -1,12 +1,14 @@
-class Book
-  attr_reader :total_books,
-              :isbn,
-              :title,
-              :publisher
-  def initialize(book_info, total)
-    @total_books = total
-    @isbn = book_info[:isbn]
-    @title = book_info[:title]
-    @publisher = book_info[:publisher]
+class Student
+  attr_reader :id,
+              :name,
+              :start_year,
+              :end_year,
+              :gpa
+  def initialize(student_info)
+    @id = student_info[:Id]
+    @name = student_info[:Name]
+    @start_year = student_info[:StartYear]
+    @end_year = student_info[:EndYear]
+    @gpa = student_info[:GPARecord]
   end
 end
