@@ -4,8 +4,8 @@ require 'rails_helper'
      
      visit "/students"
    end
-   it 'can visit the students page and see JSON output' do
-    # save_and_open_page
+   it 'can visit the students page and see JSON output', :vcr do
+    save_and_open_page
       expect(page).to have_content('Hello my name is Gunnar')
    end
  end
