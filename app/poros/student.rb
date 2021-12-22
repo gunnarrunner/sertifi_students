@@ -13,6 +13,7 @@ class Student
     @years_attended = years_attended
     @overall_gpa = overall_gpa
     @difference_gpa = difference_gpa
+    @year_gpa = year_gpa
   end
 
   def years_attended
@@ -31,5 +32,9 @@ class Student
 
   def difference_gpa
     (@gpa.max - @gpa.min).round(1)
+  end
+
+  def year_gpa
+   Hash[@years_attended.zip(@gpa)]
   end
 end
