@@ -15,7 +15,7 @@ workflows:
             branches:
               only: main
           post-steps:
-            - run: heroku run rails db:migrate --app sertifi_students
+            - run: heroku run rails db:migrate --app sertifi
 jobs:
   build:
     parallelism: 1
