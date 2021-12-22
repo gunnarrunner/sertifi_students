@@ -4,7 +4,7 @@ class SertifiSerializer
     YourName: "Gunnar Runkle", 
     YourEmail: "runnargunkle@gmail.com", 
     YearWithHighestAttendance: year_highest_attendance(student_info), 
-    YearWithHighestOverallGpa: "Working on it", 
+    YearWithHighestOverallGpa: year_highest_gpa(student_info), 
     Top10StudentIdsWithHighestGpa: highest_gpa(student_info), 
     StudentIdMostInconsistent: inconsistent(student_info)
     }
@@ -22,16 +22,13 @@ class SertifiSerializer
   end
 
   def self.year_highest_gpa(student_info)
-    grades = []
-    gpa = Hash.new(0)
-    student_info.each do |student|
-      student.years_attended.each do |year|
-        student.gpa.each do |grade|
-          gpa[student.years_attended.zip(grade)]
-        end
-      end
+    year_gpa = student_info.map do |student|
+      student.year_gpa
     end
-    gpa
+
+    total_year_gpa = year_gpa.reduce({}, :merge)
+    
+    total_year_gpa.max_by{|k,v| v}.first
   end
 
   def self.highest_gpa(student_info)

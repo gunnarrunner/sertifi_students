@@ -62,4 +62,21 @@ RSpec.describe Student do
 
     expect(student.difference_gpa).to eq(2.4)
   end
-end
+
+  it 'can make a hash with the year and gpa' do
+    student = Student.new({
+                           Id: 1,
+                           Name: "Jack",
+                           StartYear: 2013,
+                           EndYear: 2016,
+                           GPARecord: [3.4,2.1,1.2,3.6]
+                          })
+    gpa = ({
+            2013 => 3.4,
+            2014 => 2.1,
+            2015 => 1.2,
+            2016 => 3.6
+            })
+    expect(student.year_gpa).to eq(gpa)
+  end
+end 
