@@ -10,9 +10,26 @@ class Student
     @start_year = student_info[:StartYear]
     @end_year = student_info[:EndYear]
     @gpa = student_info[:GPARecord]
+    @years_attended = years_attended
+    @overall_gpa = overall_gpa
+    @difference_gpa = difference_gpa
   end
 
-  # def 
-    
-  # end
+  def years_attended
+    attended = [@start_year]
+    start = @start_year
+      until start.succ == @end_year + 1
+        attended << start.succ
+        start = start.succ
+      end
+    attended
+  end
+
+  def overall_gpa
+    (@gpa.sum / @gpa.size).round(1)
+  end
+
+  def difference_gpa
+    (@gpa.max - @gpa.min).round(1)
+  end
 end
